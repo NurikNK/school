@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #this party,
+    'rest_framework',
+
+   # custom
     'courses',
     'schools_app',
     'students',
