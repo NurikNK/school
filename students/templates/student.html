@@ -5,11 +5,21 @@
     <title>Student</title>
 </head>
 <body>
-     <h1>Add Student</h1>
+    <h1>Add Student</h1>
     <form method='POST'>
         {% csrf_token%}
         {{ form.as_p}}
         <button type="submit"> CreateStudent</button>
     </form>
+
+<h1>List of students</h1>
+    {% for st in students %}
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        Student name: {{ st.name}}<br>
+        Student date_of_birth: {{ st.date_of_birth}}<br>
+        Student school: {{ st.school}}<br>
+        Student is_active : {{ st.is_active }}<br>
+        Student is_graduated : {{ st.is_graduated }}<br>
+    {% endfor %}
 </body>
 </html>

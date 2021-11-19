@@ -22,3 +22,15 @@ class StudentCourseForm(ModelForm):
             'student',
             'course'
         ]
+
+
+class StudentListForm(ModelForm):
+    class Meta:
+        model = Student
+        fields = [
+            'name',
+            'date_of_birth',
+            'school',
+            'is_active',
+            'is_graduated',
+        ]

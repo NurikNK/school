@@ -11,5 +11,12 @@
         {{ form.as_p}}
         <button type="submit"> CreateStudentCourse</button>
     </form>
+    <h1>List of students Courses</h1>
+    {% for st in student_course %}
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        StudentCourse student: {{ st.student}}<br>
+        StudentCourse course: {{ st.course}}<br>
+
+    {% endfor %}
 </body>
 </html>

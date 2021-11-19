@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+"""from django.forms import ModelForm
 
 from .models import School
 
@@ -9,4 +9,4 @@ class SchoolForm(ModelForm):
         fields = [
             'name',
             'address',
-        ]
+        ]"""

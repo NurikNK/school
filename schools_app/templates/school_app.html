@@ -11,5 +11,13 @@
         {{ form.as_p}}
         <button type="submit"> CreateSchool_app</button>
     </form>
+<h1>List of school</h1>
+    {% for sch in school_app %}
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        Course name: {{ sch.name}}<br>
+        Course address: {{ sch.address}}
+    {% endfor %}
+
+
 </body>
 </html>
