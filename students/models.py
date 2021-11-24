@@ -15,6 +15,7 @@ class Student(models.Model):
 class StudentCourse(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     course = models.ForeignKey('courses.Course', on_delete=models.PROTECT)
+    score = models.PositiveSmallIntegerField(null=True, default=None)
 
     def __str__(self):
-        return f'{self.student}/{self.course}'
+        return f'{self.student}/{self.course}/{self.score}'
