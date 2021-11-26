@@ -12,6 +12,12 @@ class CourseSerializer(serializers.ModelSerializer):
     duration = serializers.IntegerField()
     max_students = serializers.IntegerField(min_value=1, max_value=20)
 
+    # def validate(self, attrs):
+    #     name = attrs['name']
+    #     school = attrs['school']
+    #
+    #     school_courses = School.objects.
+
     def create(self, validated_data):
         """create() method creates and returns a new Course instance"""
         """Course.objects.create(**validated_data)"""
