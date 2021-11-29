@@ -3,7 +3,7 @@ from .models import Course
 from schools_app.models import School
 
 
-class CourseSerializer(serializers.ModelSerializer):
+class CourseSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=255)
     school = serializers.PrimaryKeyRelatedField(queryset=School.objects.all())
