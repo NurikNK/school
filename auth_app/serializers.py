@@ -41,7 +41,7 @@ class UserSerializer(serializers.Serializer):
             position=validated_data['position'],
             salary=validated_data['salary'],
         )
-        Token.objects.create(user=user)
+        # Token.objects.create(user=user)
         return user
 
     def to_representation(self, instance):

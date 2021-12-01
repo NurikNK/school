@@ -34,6 +34,3 @@ class Tutor(models.Model):
     experience = models.PositiveSmallIntegerField()
     course = models.ForeignKey('courses.Course', on_delete=models.CASCADE, related_name='tutors')
 
-
-
-
