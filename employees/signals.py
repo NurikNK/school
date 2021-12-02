@@ -12,14 +12,14 @@ def user_created(sender, instance, created, **kwargs):
         Token.objects.create(user=instance)
 
 
-@receiver(post_save, sender=Employee)
-def user_created(sender, instance, created, **kwargs):
-    if created:
-        employee_data = {
-            'date_of_birth': str(instance.date_of_birth),
-            'position': str(instance.position),
-            'salary': str(instance.salary)
-        }
-        with open('employees.json', 'a') as file:
-            file.write(json.dumps(employee_data, indent=4, sort_keys=True))
+# @receiver(post_save, sender=Employee)
+# def user_created(sender, instance, created, **kwargs):
+#     if created:
+#         employee_data = {
+#             'date_of_birth': str(instance.date_of_birth),
+#             'position': str(instance.position),
+#             'salary': str(instance.salary)
+#         }
+#         with open('employees.json', 'a') as file:
+#             file.write(json.dumps(employee_data, indent=4, sort_keys=True))
 
