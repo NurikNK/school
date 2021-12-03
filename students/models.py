@@ -4,6 +4,7 @@ from django.db import models
 class Student(models.Model):
     name = models.CharField(max_length=255)
     date_of_birth = models.DateField(null=True)
+    email = models.EmailField(null=True, default=None)
     school = models.ForeignKey('schools_app.School', on_delete=models.PROTECT)
     is_active = models.BooleanField()
     is_graduated = models.BooleanField(default=False)

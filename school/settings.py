@@ -9,21 +9,33 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
+import environ
 from pathlib import Path
+
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-uy!#!$pqn^jf%c_5t+$sf&7kg%=k4^ajq_=@67+q#_2lnn+1ar'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -143,25 +155,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#
-# LOGGING = {
-#     'version': 1,
-#     'filters': {
-#         'require_debug_true': {
-#             '()': 'django.utils.log.RequireDebugTrue',
-#         }
-#     },
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'filters': ['require_debug_true'],
-#             'class': 'logging.StreamHandler',
-#         }
-#     },
-#     'loggers': {
-#         'django.db.backends': {
-#             'level': 'DEBUG',
-#             'handlers': ['console'],
-#         }
-#     }
-# }
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env("EMAIL_HOST_PASSWORD")
+
+
